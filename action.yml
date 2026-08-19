@@ -1,0 +1,34 @@
+# $schema=https://www.schemastore.org/github-action.json
+
+name: Diff melange .apk
+description: Compare two .apk files to see if there are any significant differences
+
+inputs:
+  apk1:
+    description: Path to the first .apk file
+    required: true
+  apk2:
+    description: Path to the second .apk file
+    required: true
+
+outputs:
+  package_changed:
+    description: Whether the .apk files are different
+    value: ${{ steps.diff.outputs.package_changed }}
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Run diff
+      id: diff
+      shell: bash
+      env:
+        APK1: ${{ inputs.apk1 }}
+        APK2: ${{ inputs.apk2 }}
+      run: |
+        set -euo pipefail
+
+        SCRIPT="${GITHUB_ACTION_PATH}/diff-melange-apk.sh"
+        chmod +x "${SCRIPT}"
+        "${SCRIPT}" "${APK1}" "${APK2}"
