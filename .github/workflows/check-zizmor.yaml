@@ -1,0 +1,18 @@
+# $schema: https://json.schemastore.org/github-workflow.json
+
+name: Check - GitHub Actions Security Analysis with zizmor 🌈
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "**" ]
+
+permissions: {}
+
+jobs:
+  zizmor:
+    name: Run zizmor
+    uses: rbrownwsws/actions-workflows/.github/workflows/check-zizmor.yaml@99d2f29fa2082208aef7b0036ec099262cf0164e # v1.0.0
+    permissions:
+      security-events: write  # to upload results to GitHub Advanced Security

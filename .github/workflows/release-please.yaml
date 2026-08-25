@@ -1,0 +1,19 @@
+# $schema: https://json.schemastore.org/github-workflow.json
+
+name: Run release-please
+
+on:
+  push:
+    branches:
+      - master
+
+permissions: {}
+
+jobs:
+  release-please:
+    name: release-please
+    uses: rbrownwsws/actions-workflows/.github/workflows/release-please.yaml@99d2f29fa2082208aef7b0036ec099262cf0164e # v1.0.0
+    with:
+      app-client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
+    secrets:
+      app-private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
