@@ -87,8 +87,6 @@ else
     <(echo "${old_build_env}") \
     <(echo "${new_build_env}") \
     >> "${GITHUB_STEP_SUMMARY}"
-
-  package_changed="true"
 fi
 
 echo "package_changed=${package_changed}" >> "${GITHUB_OUTPUT}"
