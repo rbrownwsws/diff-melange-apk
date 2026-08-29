@@ -10,6 +10,10 @@ inputs:
   apk2:
     description: Path to the second .apk file
     required: true
+  show-summary:
+    description: Show the diff report in the Job Summary
+    required: false
+    default: "false"
 
 outputs:
   package_changed:
@@ -20,15 +24,28 @@ runs:
   using: "composite"
 
   steps:
+    - name: Set up uv
+      uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+      with:
+        version-file: "${{ github.action_path }}/.tool-versions"
+        ignore-empty-workdir: "true"
+        cache-dependency-glob: |
+          ${{ github.action_path }}/**/*.py.lock
+
     - name: Run diff
       id: diff
       shell: bash
       env:
         APK1: ${{ inputs.apk1 }}
         APK2: ${{ inputs.apk2 }}
+        SHOW_SUMMARY: ${{ inputs.show-summary }}
       run: |
         set -euo pipefail
 
-        SCRIPT="${GITHUB_ACTION_PATH}/diff-melange-apk.sh"
-        chmod +x "${SCRIPT}"
-        "${SCRIPT}" "${APK1}" "${APK2}"
+        OPTIONS=()
+        if [[ "${SHOW_SUMMARY:-false}" == "true" ]]; then
+          OPTIONS+=("--show-summary")
+        fi
+
+        uv run --locked --script "${GITHUB_ACTION_PATH}/diff-melange-apk.py" "${OPTIONS[@]}" "${APK1}" "${APK2}"
+

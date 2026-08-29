@@ -1,0 +1,139 @@
+{% if pkginfo_changed %}
+# ⚠️ Package Info (changed)
+{% else %}
+# ✅ Package Info (unchanged)
+{% endif %}
+
+<details>
+<summary>Show details</summary>
+<blockquote>
+<details open>
+<summary>.PKGINFO diff</summary>
+
+```diff
+{{ pkginfo_diff }}
+```
+
+</details>
+
+<details>
+<summary>Old .PKGINFO</summary>
+
+```ini
+{{ pkginfo_old }}
+```
+
+</details>
+
+<details>
+<summary>New .PKGINFO</summary>
+
+```ini
+{{ pkginfo_new }}
+```
+
+</details>
+</blockquote>
+</details>
+
+{% if build_env_changed %}
+# ⚠️ Build Environment (changed)
+{% else %}
+# ✅ Build Environment (unchanged)
+{% endif %}
+
+{%- set added = [] -%}
+{%- set removed = [] -%}
+{%- set updated = [] -%}
+{%- for package, (old, new) in build_packages.items() -%}
+  {%- if old == None -%}
+    {%- do added.append((package, new)) -%}
+  {%- elif new == None -%}
+    {%- do removed.append((package, old)) -%}
+  {%- elif new != old -%}
+    {%- do updated.append((package, (old, new))) -%}
+  {%- endif -%}
+{%- endfor %}
+
+<details>
+<summary>Show details</summary>
+<blockquote>
+
+{% if added | length > 0 %}
+<details open>
+<summary>Added packages</summary>
+
+| Package | Version |
+|---------|---------|
+{% for package, version in added -%}
+| {{ package }} | {{ version }} |
+{% endfor %}
+
+</details>
+{% endif %}
+
+{% if removed | length > 0 %}
+<details open>
+<summary>Removed packages</summary>
+
+| Package | Version |
+|---------|---------|
+{% for package, version in removed -%}
+| {{ package }} | {{ version }} |
+{% endfor %}
+
+</details>
+{% endif %}
+
+{% if updated | length > 0 %}
+<details open>
+<summary>Updated packages</summary>
+
+| Package | Old Version | New Version |
+|---------|-------------|-------------|
+{% for package, (old, new) in updated -%}
+| {{ package }} | {{ old }} | {{ new }} |
+{% endfor %}
+
+</details>
+{% endif %}
+
+<details>
+<summary>All packages</summary>
+
+| Package | Old Version | New Version | Change |
+|---------|-------------|-------------|--------|
+{% for package, (old, new) in build_packages.items() %}
+{% if old == None %}
+| **{{ package }}** | **&mdash;** | **{{ new }}** | **New** |
+{% elif new == None %}
+| ~~{{ package }}~~ | ~~{{ old }}~~ | **&mdash;** | ~~Removed~~ |
+{% elif new != old %}
+| ***{{ package }}*** | _{{ old }}_ | ***{{ new }}*** | ***Updated*** |
+{% else %}
+| {{ package }} | {{ old }} | {{ new }} |   |
+{% endif %}
+{% endfor %}
+
+</details>
+
+</blockquote>
+</details>
+
+{% if data_changed %}
+# ⚠️ Data Files (changed)
+{% else %}
+# ✅ Data Files (unchanged)
+{% endif %}
+
+<details>
+<summary>Show details</summary>
+<blockquote>
+
+{# FIXME: actually check for/escape ``` properly #}
+``````````diff
+{{ data_diff | safe }}
+``````````
+
+</blockquote>
+</details>
