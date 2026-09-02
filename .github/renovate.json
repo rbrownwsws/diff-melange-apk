@@ -2,5 +2,24 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>rbrownwsws/renovate-config:actions"
+  ],
+  "pep723": {
+    "managerFilePatterns": [
+      "*.py"
+    ]
+  },
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "description": "Action deps need to bump version",
+      "matchFileNames": [
+        ".tool-versions",
+        "*.py",
+        "*.py.lock"
+      ],
+      "semanticCommitType": "fix"
+    }
   ]
 }
