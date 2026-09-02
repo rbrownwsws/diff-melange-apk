@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/rbrownwsws/diff-melange-apk/compare/v1.0.1...v1.1.0) (2026-09-02)
+
+
+### Features
+
+* rewrite in python for better templating ([#5](https://github.com/rbrownwsws/diff-melange-apk/issues/5)) ([52d9dc8](https://github.com/rbrownwsws/diff-melange-apk/commit/52d9dc85fe403cbd78deec8f2c09d994fddfe4c0))
+
 ## [1.0.1](https://github.com/rbrownwsws/diff-melange-apk/compare/v1.0.0...v1.0.1) (2026-08-27)
 
 
