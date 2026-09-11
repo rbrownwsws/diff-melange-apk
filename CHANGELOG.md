@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.5](https://github.com/rbrownwsws/diff-melange-apk/compare/v1.1.4...v1.1.5) (2026-09-10)
+
+
+### Bug Fixes
+
+* **deps:** update astral-sh/setup-uv action to v10.1.0 ([#17](https://github.com/rbrownwsws/diff-melange-apk/issues/17)) ([59b400d](https://github.com/rbrownwsws/diff-melange-apk/commit/59b400d703c2b3d5a9151e12a20b107c36d90638))
+* **deps:** update dependency uv to v0.12.13 ([#16](https://github.com/rbrownwsws/diff-melange-apk/issues/16)) ([b50040a](https://github.com/rbrownwsws/diff-melange-apk/commit/b50040a974894a117c6f470aecd6ee232a6e398f))
+
 ## [1.1.4](https://github.com/rbrownwsws/diff-melange-apk/compare/v1.1.3...v1.1.4) (2026-09-10)
 
 
