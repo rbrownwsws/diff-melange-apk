@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.10](https://github.com/rbrownwsws/diff-melange-apk/compare/v1.1.9...v1.1.10) (2026-10-11)
+
+
+### Bug Fixes
+
+* **deps:** update astral-sh/setup-uv action to v10.3.0 ([#33](https://github.com/rbrownwsws/diff-melange-apk/issues/33)) ([b2346b2](https://github.com/rbrownwsws/diff-melange-apk/commit/b2346b2be77a2aa5234b890cad155a5360de5380))
+* **deps:** update dependency python to v3.14.8 ([#30](https://github.com/rbrownwsws/diff-melange-apk/issues/30)) ([95dc8c5](https://github.com/rbrownwsws/diff-melange-apk/commit/95dc8c54a45cc6681212d10c4298f7113c9ed405))
+* **deps:** update dependency python to v3.15.0 ([#34](https://github.com/rbrownwsws/diff-melange-apk/issues/34)) ([82df69c](https://github.com/rbrownwsws/diff-melange-apk/commit/82df69cb8670485e3a755fedf305a29e658d9ee8))
+* **deps:** update dependency uv to v0.13.0 ([#31](https://github.com/rbrownwsws/diff-melange-apk/issues/31)) ([8e04c1c](https://github.com/rbrownwsws/diff-melange-apk/commit/8e04c1c3abb0162a8b8e8c7bec773c6abdf8e5f5))
+
 ## [1.1.9](https://github.com/rbrownwsws/diff-melange-apk/compare/v1.1.8...v1.1.9) (2026-09-29)
 
 
