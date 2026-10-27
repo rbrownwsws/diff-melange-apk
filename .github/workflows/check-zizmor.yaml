@@ -13,6 +13,6 @@ permissions: {}
 jobs:
   zizmor:
     name: Run zizmor
-    uses: rbrownwsws/actions-workflows/.github/workflows/check-zizmor.yaml@c75a4e92d88396a5809f92760b886167030efd03 # v1.0.2
+    uses: rbrownwsws/actions-workflows/.github/workflows/check-zizmor.yaml@06b4fadb81ca7c86a3a89deb9f4ffab03e1cb1a9 # v1.0.5
     permissions:
       security-events: write  # to upload results to GitHub Advanced Security
