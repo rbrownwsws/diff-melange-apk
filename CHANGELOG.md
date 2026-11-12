@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.16](https://github.com/rbrownwsws/diff-melange-apk/compare/v1.1.15...v1.1.16) (2026-11-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency uv to v0.13.8 ([#47](https://github.com/rbrownwsws/diff-melange-apk/issues/47)) ([61936b7](https://github.com/rbrownwsws/diff-melange-apk/commit/61936b7a67b277d96236177913f591da31082f32))
+
 ## [1.1.15](https://github.com/rbrownwsws/diff-melange-apk/compare/v1.1.14...v1.1.15) (2026-11-03)
 
 
